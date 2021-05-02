@@ -13,13 +13,13 @@ jobs:
           keys:
             - composer-{{ checksum "composer.json" }}
             - composer-
+      - run: sudo composer update
       - run: composer install -n --prefer-dist
       - save_cache:
           name: Store composer cache
           key: composer-{{ checksum "composer.json" }}
           paths:
             - vendor
-      - run: sudo composer update
       - run: ./vendor/bin/phpcs -n --standard=phpcs.xml
   # deploy:
   #   machine: true
