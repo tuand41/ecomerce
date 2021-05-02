@@ -2,18 +2,18 @@ version: 2
 jobs:
   build:
     docker:
-      - image: circleci/php:7.2-fpm-node
+      - image: circleci/php:7.3-fpm-node
     steps:
       - checkout
       - run: sudo apt update
-      - run: sudo docker-php-ext-install zip
+      # - run: sudo docker-php-ext-install zip
+      - run: sudo composer self-update
       # Composer
       - restore_cache:
           name: Restore composer cache
           keys:
             - composer-{{ checksum "composer.json" }}
             - composer-
-      - run: sudo composer update
       - run: composer install -n --prefer-dist
       - save_cache:
           name: Store composer cache
