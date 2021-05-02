@@ -20,6 +20,7 @@ class CreateProductsTable extends Migration
             $table->string('image')->nullable();
             $table->float('price');
             $table->integer('qty');
+            $table->string('slug');
             $table->foreignId('category_id');
             $table->softDeletes();
             $table->timestamps();

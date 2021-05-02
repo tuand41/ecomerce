@@ -13,8 +13,15 @@ use App\Http\Controllers\LocalizationController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('lang/{lang}', [LocalizationController::class,'translate'])->name('localization');
+Route::get('lang/{locale}', [LocalizationController::class,'translate'])->name('localization');
 
 Route::get('/', function () {
     return view('welcome');
 });
+
+Auth::routes([
+    'register' => false,
+    'verify' => false,
+]);
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
