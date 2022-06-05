@@ -36,6 +36,6 @@ class Product extends Model
      */
     public function orders(): BelongsToMany
     {
-        return $this->belongsToMany(Order::class);
+        return $this->belongsToMany(Order::class)->as('orderDetail')->withPivot('qty');
     }
 }

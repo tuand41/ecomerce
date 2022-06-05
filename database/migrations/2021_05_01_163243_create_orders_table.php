@@ -13,15 +13,16 @@ class CreateOrdersTable extends Migration
      */
     public function up()
     {
+        Schema::dropIfExists('orders');
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
             $table->string('full_name')->default('text');
             $table->string('address')->default('text');
             $table->string('phone')->default('text');
-            $table->string('email')->default('text');
-            $table->float('total');
+            $table->float('total_price');
             $table->tinyInteger('status');
             $table->text('note')->nullable();
+            $table->foreignId('user_id');
             $table->softDeletes();
             $table->timestamps();
         });
