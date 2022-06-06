@@ -9,7 +9,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">LOGO</a>
+            <a class="navbar-brand" href="{{ route('homePage') }}">LOGO</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -48,7 +48,7 @@
                     </div>
                     <button type="submit" class="btn btn-default">Tìm Kiếm</button>
                 </form>
-                <li class="gio-hang"><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span><b> Giỏ
+                <li class="gio-hang"><a href="{{ route('cartPage') }}"><span class="glyphicon glyphicon-shopping-cart"></span><b> Giỏ
                             Hàng(2)</b></a></li>
             </ul>
         </div><!-- /.navbar-collapse -->

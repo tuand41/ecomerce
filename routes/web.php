@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LocalizationController;
 use App\Http\Controllers\Shop\HomePageController;
+use App\Http\Controllers\Shop\CartController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -25,6 +26,7 @@ Auth::routes([
 ]);
 
 Route::group(['namespace' => 'Shop'], function () {
-    Route::get('/', [HomePageController::class, 'index']);
+    Route::get('/', [HomePageController::class, 'index'])->name('homePage');
+    Route::get('/cart', [CartController::class, 'index'])->name('cartPage');
 });
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
